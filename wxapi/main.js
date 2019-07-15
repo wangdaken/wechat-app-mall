@@ -296,6 +296,15 @@ module.exports = {
       token
     })
   },
+  withDrawDetail: (token, id) => {
+    return request('/user/withDraw/detail', true, 'get', {
+      token,
+      id
+    })
+  },
+  withDrawLogs: (data) => {
+    return request('/user/withDraw/list', true, 'post', data)
+  },
   province: () => {
     return request('/common/region/v2/province', false, 'get')
   },
@@ -333,5 +342,83 @@ module.exports = {
   },
   wxaQrcode: (data) => {
     return request('/qrcode/wxa/unlimit', true, 'post', data)
+  },
+  uploadFile: (token, tempFilePath) => {
+    const uploadUrl = API_BASE_URL + '/' + CONFIG.subDomain + '/dfs/upload/file'
+    return new Promise((resolve, reject) => {
+      wx.uploadFile({
+        url: uploadUrl,
+        filePath: tempFilePath,
+        name: 'upfile',
+        formData: {
+          'token': token
+        },
+        success(res) {
+          resolve(JSON.parse(res.data))
+        },
+        fail(error) {
+          reject(error)
+        },
+        complete(aaa) {
+          // 加载完成
+        }
+      })
+    })
+  },
+  refundApply: (token, orderId, type, logisticsStatus, reason, amount, remark, pic) => {
+    return request('/order/refundApply/apply', true, 'post', {
+      token,
+      orderId,
+      type,
+      logisticsStatus,
+      reason,
+      amount,
+      remark,
+      pic
+    })
+  },
+  refundApplyDetail: (token, orderId) => {
+    return request('/order/refundApply/info', true, 'get', {
+      token,
+      orderId
+    })
+  },
+  refundApplyCancel: (token, orderId) => {
+    return request('/order/refundApply/cancel', true, 'post', {
+      token,
+      orderId
+    })
+  },
+  cmsCategories: () => {
+    return request('/cms/category/list', true, 'get', {})
+  },
+  cmsArticles: (data) => {
+    return request('/cms/news/list', true, 'post', data)
+  },
+  cmsArticleDetail: (id) => {
+    return request('/cms/news/detail', true, 'get', {
+      id
+    })
+  },
+  invoiceList: (data) => {
+    return request('/invoice/list', true, 'post', data)
+  },
+  invoiceApply: (data) => {
+    return request('/invoice/apply', true, 'post', data)
+  },
+  invoiceDetail: (token, id) => {
+    return request('/invoice/info', true, 'get', { token, id })
+  },
+  depositList: (data) => {
+    return request('/deposit/list', true, 'post', data)
+  },
+  payDeposit: (data) => {
+    return request('/deposit/pay', true, 'post', data)
+  },
+  depositInfo: (token, id) => {
+    return request('/deposit/info', true, 'get', { token, id })
+  },
+  depositBackApply: (token, id) => {
+    return request('/deposit/back/apply', true, 'post', { token, id })
   }
 }

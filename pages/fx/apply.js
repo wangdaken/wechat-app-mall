@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    
   },
 
   /**
@@ -28,7 +28,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const _this = this
+    WXAPI.userDetail(wx.getStorageSync('token')).then(res => {
+      if (res.code === 0) {
+        _this.setData({
+          userDetail: res.data
+        })
+      }
+    })
   },
 
   /**
@@ -95,9 +102,53 @@ Page({
         })
         return
       }
+      this.subcriptionTmplMsg(res.data)
       wx.navigateTo({
         url: "/pages/fx/apply-status"
       })
+    })
+  },
+  subcriptionTmplMsg(applyObj){
+    const postJsonString = {};
+    postJsonString.keyword1 = {
+      value: '申请成为分销商',
+      color: '#173177'
+    }
+    postJsonString.keyword2 = {
+      value: '未审核通过',
+      color: '#173177'
+    }
+    postJsonString.keyword3 = {
+      value: '感谢您的支持，再接再厉，继续努力',
+      color: '#173177'
+    }
+    WXAPI.sendTempleMsg({
+      module: 'saleDistributionApply',
+      business_id: applyObj.id,
+      trigger: 1, // 不通过
+      postJsonString: JSON.stringify(postJsonString),
+      template_id: 'VK39qeUvnQ7KkS7__8bSLHAmOoFD1gYJzCrZnLgGOVQ',
+      type: 0,
+      token: wx.getStorageSync('token'),
+      url: 'pages/fx/apply-status'
+    })
+    postJsonString.keyword2 = {
+      value: '通过',
+      color: '#173177'
+    }
+    postJsonString.keyword3 = {
+      value: '感谢您的支持，期待为您的事业增光添彩！',
+      color: '#173177'
+    }
+    WXAPI.sendTempleMsg({
+      module: 'saleDistributionApply',
+      business_id: applyObj.id,
+      trigger: 2, // 通过
+      postJsonString: JSON.stringify(postJsonString),
+      template_id: 'VK39qeUvnQ7KkS7__8bSLHAmOoFD1gYJzCrZnLgGOVQ',
+      type: 0,
+      token: wx.getStorageSync('token'),
+      url: 'pages/fx/apply-status'
     })
   }
 })

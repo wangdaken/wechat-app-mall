@@ -77,6 +77,9 @@ Page({
       withShareTicket: true
     }) 
     const that = this
+    // if (e && e.query && e.query.inviter_id) { 
+    //   wx.setStorageSync('referrer', e.query.inviter_id)
+    // }
     if (e && e.scene) {
       const scene = decodeURIComponent(e.scene)
       if (scene) {        
@@ -121,6 +124,7 @@ Page({
         categories = categories.concat(res.data)
       }
       const _n = Math.ceil(categories.length / 2)
+      // const _n = Math.ceil(categories.length)
       that.setData({
         categories: categories,
         category_box_width: 150 * _n,
