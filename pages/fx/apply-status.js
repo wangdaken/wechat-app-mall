@@ -135,7 +135,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '"' + wx.getStorageSync('mallName') + '" ' + CONFIG.shareProfile,
+      title: CONFIG.shareProfile,
       path: '/pages/index/index?inviter_id=' + wx.getStorageSync('uid'),
       success: function (res) {
         // 转发成功

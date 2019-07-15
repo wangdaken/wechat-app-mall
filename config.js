@@ -1,9 +1,9 @@
 module.exports = {
   version: "6.5.8",
   note: '增加到店自提支持',
-  subDomain: "tz", // 如果你的域名是： https://api.it120.cc/abcd 那么这里只要填写 abcd
-  appid: "wxa46b09d413fbcaff", // 您的小程序的appid，购物单功能需要使用
-  shareProfile: '百款精品商品，总有一款适合您' // 首页转发的时候话术
+  subDomain: "drcz", // 如果你的域名是： https://api.it120.cc/abcd 那么这里只要填写 abcd
+  appid: "wx0bc48930dc7a573c", // 您的小程序的appid，购物单功能需要使用
+  shareProfile: '新鲜是我们经营鸡蛋的原则与底线，好吃是检验鸡蛋品质的重要标准！' // 首页转发的时候话术
 }
 /*
 根据自己需要修改下单时候的模板消息内容设置，可增加关闭订单、收货时候模板消息提醒；

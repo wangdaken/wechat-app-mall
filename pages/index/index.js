@@ -83,9 +83,9 @@ Page({
         wx.setStorageSync('referrer', scene.substring(11))
       }
     }
-    wx.setNavigationBarTitle({
-      title: wx.getStorageSync('mallName')
-    })
+    // wx.setNavigationBarTitle({
+    //   title: wx.getStorageSync('mallName')
+    // })
     /**
      * 示例：
      * 调用接口封装方法
@@ -199,7 +199,7 @@ Page({
   },
   onShareAppMessage: function() {    
     return {
-      title: '"' + wx.getStorageSync('mallName') + '" ' + CONFIG.shareProfile,
+      title: CONFIG.shareProfile,
       path: '/pages/index/index?inviter_id=' + wx.getStorageSync('uid')
     }
   },

@@ -1,6 +1,6 @@
 <view class="container">
   <view class="page__bd">
-    <view class="weui-search-bar">
+    <!-- <view class="weui-search-bar">
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
@@ -15,7 +15,7 @@
         </label>
       </view>
       <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
-    </view>
+    </view> -->
     <!-- <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
       <navigator url="" class="weui-cell" hover-class="weui-cell_active">
         <view class="weui-cell__bd">
@@ -48,7 +48,7 @@
         </navigator>
       </swiper>
     </view>
-    <scroll-view scroll-x>
+    <!-- <scroll-view scroll-x>
       <view class="category-box" style='width:{{category_box_width}}rpx;'>
         <view class="category-list" wx:for="{{categories}}" wx:key="*this">
           <view class="category-column {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="tabClick" id="{{item.id}}">
@@ -57,7 +57,7 @@
           </view>          
         </view>
       </view>
-    </scroll-view>
+    </scroll-view> -->
   </view>
   <view class="swiper-container">
     <swiper class="swiper_box" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">

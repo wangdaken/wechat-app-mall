@@ -36,12 +36,12 @@
 }
 .swiper_box {
   width: 750rpx;
-  height:250rpx;
+  height:422rpx;
 }
 
 swiper-item image {
   width: 750rpx;
-  height:250rpx;
+  height:422rpx;
 }
 .swiper-container .dots{  
   position: absolute;  
