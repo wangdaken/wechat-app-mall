@@ -183,7 +183,7 @@ Page({
         business_id: res.data.id,
         trigger: -1,
         postJsonString: JSON.stringify(postJsonString),
-        template_id: 'mGVFc31MYNMoR9Z-A9yeVVYLIVGphUVcK2-S2UdZHmg',
+        template_id: 'JPjOpWNB-RWnR-HM_ohEu9yuBHJpEOtlN8BDw-atq5w',
         type: 0,
         token: wx.getStorageSync('token'),
         url: 'pages/index/index'
@@ -206,7 +206,7 @@ Page({
         business_id: res.data.id,
         trigger: 2,
         postJsonString: JSON.stringify(postJsonString),
-        template_id: 'Arm2aS1rsklRuJSrfz-QVoyUzLVmU2vEMn_HgMxuegw',
+        template_id: 'ALGt8_uyTW9L2kyinexwaSvn6Yf9wfohD5cICEE-E0E',
         type: 0,
         token: wx.getStorageSync('token'),
         url: 'pages/order-details/index?id=' + res.data.id

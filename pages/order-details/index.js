@@ -74,7 +74,7 @@ Page({
                   WXAPI.sendTempleMsg({
                     module: 'immediately',
                     postJsonString: JSON.stringify(postJsonString),
-                    template_id: 'uJL7D8ZWZfO29Blfq34YbuKitusY6QXxJHMuhQm_lco',
+                    template_id: 'Q-cJPtKYIe0yuZ0d2E4w_NjTGn6oqfyW-MT8pTHZkLU',
                     type: 0,
                     token: wx.getStorageSync('token'),
                     url: '/pages/order-details/index?id=' + orderId
