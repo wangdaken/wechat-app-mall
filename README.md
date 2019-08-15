@@ -13,7 +13,7 @@
 | 舔果果小铺 | 面馆风格小程序 | AI名片 |
 | :------: | :------: | :------: |
 | <img src="https://cdn.it120.cc/apifactory/2018/04/01/b7b8f5a0fcfc72454ade8510ab929717.jpg" width="200px"> | <img src="https://cdn.it120.cc/apifactory/2019/03/29/9e30cfe31eabcd218eb9c434f17e9295.jpg" width="200px"> | <img src="https://cdn.it120.cc/apifactory/2018/12/18/c2324da4eea91602f385db5b523b13ca.jpg" width="200px"> | 
-| [开源地址](https://github.com/qindiandadudu/TianguoguoXiaopu) | [开源地址](https://gitee.com/javazj/noodle_shop_procedures) | [开源地址](https://github.com/gooking/visitingCard) |
+| [开源地址](https://github.com/walcer/TianguoguoXiaopu) | [开源地址](https://gitee.com/javazj/noodle_shop_procedures) | [开源地址](https://github.com/gooking/visitingCard) |
 
 ## 联系作者
 
@@ -30,6 +30,16 @@
 - [免费后台](https://admin.it120.cc)
 
 - [WeUI](https://github.com/Tencent/weui-wxss/)
+
+## 初始化测试数据
+
+登录后台，左侧菜单 “工厂设置” --> “数据克隆” --> “将别人的数据克隆给我”
+
+对方商户ID填写  951
+
+点击 “立即克隆” ，然后退出后台重新登录
+
+你将立即享有初始化测试数据，方便你进行测试
 
 ## 关于分类页面
 
@@ -88,6 +98,32 @@ module.exports = {
 小程序会自动读取类型为 app 的banner图片作为启动展示图片；
 小程序会自动读取类型为 new 的banner图片作为首页分类下的轮播图；
 ```
+
+## 系统参数设置
+
+- RECHARGE_OPEN （开关类型）
+  
+  **微信审核的时候，如果你的小程序有充值功能会导致审核不通过，所以默认情况下，小程序将隐藏充值提现功能，通过该参数可开启充值提现的显示**
+
+- ROLE_FOR_SHOP （开关类型）
+  
+  **如果你有多店铺功能，改功能将开启店铺管理员功能，届时，每个店铺管理员将只能管理自己店铺下的商品和订单，而无法查看并管理其他店铺的订单**
+
+- ALLOW_SELF_COLLECTION （开关类型）
+  
+  **是否开启到店自提功能（快递和到店自提客户自己可以选择）**
+
+- WITHDRAW_FEE_PERCENT （文本参数）
+  
+  **提现手续费比例，填1为 1%**
+
+- free_shipping_for_purchases （文本参数）
+  
+  **下单金额满多少后实现包邮**
+
+- mallName （文本参数）
+  
+  **小程序名称（商城名称）**
 
 ## 常见问题
 

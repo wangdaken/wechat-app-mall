@@ -1,6 +1,8 @@
 const wxpay = require('../../utils/pay.js')
 const app = getApp()
 const WXAPI = require('../../wxapi/main')
+const AUTH = require('../../utils/auth')
+
 Page({
   data: {
     statusType: ["待付款", "待发货", "待收货", "待评价", "已完成"],
@@ -42,6 +44,19 @@ Page({
     })
   },
   toPayTap: function(e) {
+    // 防止连续点击--开始
+    if (this.data.payButtonClicked) {
+      wx.showToast({
+        title: '休息一下~',
+        icon: 'none'
+      })
+      return
+    }
+    this.data.payButtonClicked = true
+    setTimeout(() => {
+      this.data.payButtonClicked = false
+    }, 3000)  // 可自行修改时间间隔（目前是3秒内只能点击一次支付按钮）
+    // 防止连续点击--结束
     const that = this;
     const orderId = e.currentTarget.dataset.id;
     let money = e.currentTarget.dataset.money;
@@ -158,6 +173,29 @@ Page({
     })
   },
   onShow: function() {
+    AUTH.checkHasLogined().then(isLogined => {
+      if (isLogined) {
+        this.doneShow();
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: '本次操作需要您的登录授权',
+          cancelText: '暂不登录',
+          confirmText: '前往登录',
+          success(res) {
+            if (res.confirm) {
+              wx.switchTab({
+                url: "/pages/my/index"
+              })
+            } else {
+              wx.navigateBack()
+            }
+          }
+        })
+      }
+    })
+  },
+  doneShow: function() {
     // 获取订单列表
     var that = this;
     var postData = {
