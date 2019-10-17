@@ -60,6 +60,21 @@
 }
 ```
 
+## 编译说明
+
+本项目使用基于 ES7 的语法，所以请在开发工具中开启 “增强编译”， 否则会提示以下错误：
+
+```
+thirdScriptError 
+ sdk uncaught third Error 
+ regeneratorRuntime is not defined 
+ ReferenceError: regeneratorRuntime is not defined
+```
+
+<img src="https://dcdn.it120.cc/2019/08/28/c5169c15-abda-4e5f-91d5-6dfcfe382fb2.png">
+
+**如果你的开发工具没用看到“增强编译”的选项，请升级开发工具到最新版**
+
 ## 使用说明
 
 1、申请后台账号/获取专属域名
@@ -101,6 +116,8 @@ module.exports = {
 
 ## 系统参数设置
 
+*登录后台，左侧菜单“系统设置” --> “系统参数” 菜单；如果你找不到该菜单，那是因为你还没启用 “系统参数设置” 的模块，左侧菜单“系统设置” --> “模块管理”，启用 “系统参数设置” 模块，然后F5刷新网页即可*
+
 - RECHARGE_OPEN （开关类型）
   
   **微信审核的时候，如果你的小程序有充值功能会导致审核不通过，所以默认情况下，小程序将隐藏充值提现功能，通过该参数可开启充值提现的显示**
@@ -125,9 +142,17 @@ module.exports = {
   
   **小程序名称（商城名称）**
 
+- REGISTER_OPEN_SELLER （开关类型）
+  
+  **新注册用户是否自动成为分销商，如果不开启该参数，分销商需要自己申请，你进行审核**
+  
+  [《api工厂三级分销插件使用教程》](https://www.jianshu.com/p/22d98c9bd77a)
+
 ## 常见问题
 
-- [如何修改小程序商城的标题？](https://www.it120.cc/info/wechat-app-mall/10478)
+- 如何修改小程序商城的标题？
+
+  请查看上面的系统设置中的 **mallName**
 
 - “无法登录” / Token 无效 ？
 
@@ -196,6 +221,19 @@ module.exports = {
 
   1. 创建订单接口增加 expireMinutes 参数；
   2. 代表多少分钟未支付自动关闭本订单，传 0 不自动关闭订单；
+
+- 我没有那么多分类，首页2行分类能否改成1行？
+
+  打开 /pages/index/index.js 文件，找到下图所示位置，代码
+
+  ```js
+  // 这行代码为显示2行
+  const _n = Math.ceil(categories.length / 2)
+  // 这行代码为显示1行
+  const _n = Math.ceil(categories.length)
+  ```
+
+  <img src="https://dcdn.it120.cc/2019/09/05/31729239-dc73-47f6-938a-9ab2c9c0bfdd.png">
 
 - [更多问题？](https://www.it120.cc/info/all)
 
